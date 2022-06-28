@@ -26,6 +26,8 @@ CMD ["java", "-jar", "app.jar"] # this is the command that runs when the contain
 
 #### Build executable jar file
 
+### Ignore local setup if you want to build using github actions
+
 ***prerequsites***
 
 - Install jdk 15 locally
