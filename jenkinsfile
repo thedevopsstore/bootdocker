@@ -1,0 +1,28 @@
+#!groovy
+
+pipeline {
+    agent none
+
+options {
+    timestamp()
+}
+
+    stages {
+        stage('Build code') {
+            agent {
+                docker {
+                    image 'gradle:jdk15'
+                }
+            }
+
+            steps {
+                checkout scm
+                sh 'chmod +x gradlew'
+                sh './gradlew build'
+                stash 'source'
+            }
+        }
+       
+    }
+
+}
